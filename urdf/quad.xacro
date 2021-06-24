@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quad_ufabc">
+<pose>0 0 0.05 0 0 0</pose>
+    <link name="chassis">
+      <inertial>
+        <mass value="1.03"/>
+		<inertia ixx="0.01683" ixy="0.0" ixz="0.0" iyy="0.01683" iyz="0.0" izz="0.02834"/>
+      </inertial>
+      <collision name="collision">
+		  <origin xyz="0 0 0.05"/>
+        <geometry>
+			<box size="0.72 0.2 0.1"/>
+        </geometry>
+      </collision>
+	  <collision name="collision_2">
+		  <origin xyz="0 0 0.05"/>
+        <geometry>
+			<box size="0.2 0.72 0.1"/>
+        </geometry>
+      </collision>
+      <visual name="quadcopter">
+        <geometry>
+          <mesh filename="package://quad_ufabc/meshes/quadrotor.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+  	<!-- first propeller -->
+    <link name="motor_1">
+      <inertial>
+        <mass value="0.005"/>
+		<inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="5e-5"/>
+      </inertial>
+      <visual name="prop_1_visual">
+        <geometry>
+          <mesh filename="package://quad_ufabc/meshes/prop_cw.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint type="continuous" name="joint_prop_1">
+        <origin xyz="0 -0.26 0.08"/>
+        <child link="motor_1"/>
+        <parent link="chassis"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+  	<!-- second propeller -->
+    <link name="motor_2">
+      <inertial>
+        <mass value="0.005"/>
+		<inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="5e-5"/>
+      </inertial>
+      <visual name="prop_2_visual">
+        <geometry>
+          <mesh filename="package://quad_ufabc/meshes/prop_ccw.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint type="continuous" name="joint_prop_2">
+        <origin xyz="0.26 0 0.08"/>
+        <child link="motor_2"/>
+        <parent link="chassis"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+  	<!-- third propeller -->
+    <link name="motor_3">
+      <inertial>
+        <mass value="0.005"/>
+		<inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="5e-5"/>
+      </inertial>
+      <visual name="prop_3_visual">
+        <geometry>
+          <mesh filename="package://quad_ufabc/meshes/prop_cw.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint type="continuous" name="joint_prop_3">
+        <origin xyz="0 0.26 0.08"/>
+        <child link="motor_3"/>
+        <parent link="chassis"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+  	<!-- fourth propeller -->
+    <link name="motor_4">
+      <inertial>
+        <mass value="0.005"/>
+		<inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="5e-5"/>
+      </inertial>
+      <visual name="prop_4_visual">
+        <geometry>
+          <mesh filename="package://quad_ufabc/meshes/prop_ccw.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint type="continuous" name="joint_prop_4">
+        <origin xyz="-0.26 0 0.08"/>
+        <child link="motor_4"/>
+        <parent link="chassis"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+	<!-- Drag and Lift Plugin -->
+	<!-- Prop 1 -->
+	<gazebo>
+		<plugin name="lift_prop_1_half_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 1 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>motor_1</link_name>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="lift_prop_1_half_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 -1 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>motor_1</link_name>
+		</plugin>
+	</gazebo>
+
+	<!-- Prop 2 -->
+	<gazebo>
+		<plugin name="lift_prop_2_half_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 1 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>motor_2</link_name>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="lift_prop_2_half_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 -1 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>motor_2</link_name>
+		</plugin>
+	</gazebo>
+
+	<!-- Prop 3 -->
+
+	<gazebo>
+		<plugin name="lift_prop_3_half_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 1 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>motor_3</link_name>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="lift_prop_3_half_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 -1 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>motor_3</link_name>
+		</plugin>
+	</gazebo>
+
+	<!-- Prop 4 -->
+
+	<gazebo>
+		<plugin name="lift_prop_4_half_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 1 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>motor_4</link_name>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="lift_prop_4_half_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 -1 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>motor_4</link_name>
+		</plugin>
+	</gazebo>
+
+	<!-- Velocity Controller -->
+
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/quad</robotNamespace>
+		</plugin>
+	</gazebo>
+
+	<transmission name="trans_1" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_prop_1">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor1">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_2" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_prop_2">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor2">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_3" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_prop_3">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor3">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_4" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_prop_4">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor4">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+</robot>
