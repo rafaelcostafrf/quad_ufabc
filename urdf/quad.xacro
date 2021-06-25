@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quad_ufabc">
 <pose>0 0 0.05 0 0 0</pose>
+	<!--
+	<link name="world" />
+	<joint name="world_joint"  type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="world"/>
+		<child link="chassis"/>
+	</joint>-->
+
+
     <link name="chassis">
       <inertial>
         <mass value="1.03"/>
@@ -113,16 +122,16 @@
 	<!-- Prop 1 -->
 	<gazebo>
 		<plugin name="lift_prop_1_half_1" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>-0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>-0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 1 0</forward>
 			<upward>0 0 1</upward>
@@ -132,16 +141,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_1_half_2" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 -1 0</forward>
 			<upward>0 0 1</upward>
@@ -152,16 +161,16 @@
 	<!-- Prop 2 -->
 	<gazebo>
 		<plugin name="lift_prop_2_half_1" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>-0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>-0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 1 0</forward>
 			<upward>0 0 -1</upward>
@@ -171,16 +180,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_2_half_2" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 -1 0</forward>
 			<upward>0 0 -1</upward>
@@ -192,16 +201,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_3_half_1" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>-0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>-0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 1 0</forward>
 			<upward>0 0 1</upward>
@@ -211,16 +220,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_3_half_2" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 -1 0</forward>
 			<upward>0 0 1</upward>
@@ -232,16 +241,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_4_half_1" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>-0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>-0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 1 0</forward>
 			<upward>0 0 -1</upward>
@@ -251,16 +260,16 @@
 
 	<gazebo>
 		<plugin name="lift_prop_4_half_2" filename="libLiftDragPlugin.so">
-			<a0>0.1</a0>
-			<cla>0.1</cla>
-			<cda>0.01</cda>
-			<cma>0.0</cma>
-			<alpha_stall>0.2</alpha_stall>
-			<cla_stall>-0.2</cla_stall>
-			<cda_stall>1.0</cda_stall>
-			<cma_stall>0.0</cma_stall>
-			<cp>0.5 0 0</cp>
-			<area>0.762</area>
+			<a0>0.4</a0>
+			<cla>4.752798721</cla>
+			<cda>1.4</cda>
+			<cma>0</cma>
+			<alpha_stall>1.5</alpha_stall>
+			<cla_stall>-3.85</cla_stall>
+			<cda_stall>-0.9233984055</cda_stall>
+			<cma_stall>0</cma_stall>
+			<cp>0.05725 0 0</cp>
+			<area>0.19</area>
 			<air_density>1.2041</air_density>
 			<forward>0 -1 0</forward>
 			<upward>0 0 -1</upward>
@@ -319,5 +328,16 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
+
+	<gazebo reference="joint_prop_1">
+		<provideFeedback>true</provideFeedback>
+	</gazebo>
+	<gazebo>
+		<plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+			<updateRate>1.0</updateRate>
+			<topicName>ft_sensor_topic</topicName>
+			<jointName>joint_prop_1</jointName>
+		</plugin>
+	</gazebo>
 
 </robot>
