@@ -12,6 +12,7 @@
 
     <link name="chassis">
       <inertial>
+	    <origin xyz="0 0 0.08"/>
         <mass value="1.03"/>
 		<inertia ixx="0.01683" ixy="0.0" ixz="0.0" iyy="0.01683" iyz="0.0" izz="0.02834"/>
       </inertial>
@@ -333,10 +334,43 @@
 		<provideFeedback>true</provideFeedback>
 	</gazebo>
 	<gazebo>
-		<plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+		<plugin name="ft_sensor_1" filename="libgazebo_ros_ft_sensor.so">
 			<updateRate>1.0</updateRate>
-			<topicName>ft_sensor_topic</topicName>
+			<topicName>ft_sensor_topic_1</topicName>
 			<jointName>joint_prop_1</jointName>
+		</plugin>
+	</gazebo>
+
+	<gazebo reference="joint_prop_2">
+		<provideFeedback>true</provideFeedback>
+	</gazebo>
+	<gazebo>
+		<plugin name="ft_sensor_2" filename="libgazebo_ros_ft_sensor.so">
+			<updateRate>1.0</updateRate>
+			<topicName>ft_sensor_topic_2</topicName>
+			<jointName>joint_prop_2</jointName>
+		</plugin>
+	</gazebo>
+
+	<gazebo reference="joint_prop_3">
+		<provideFeedback>true</provideFeedback>
+	</gazebo>
+	<gazebo>
+		<plugin name="ft_sensor_3" filename="libgazebo_ros_ft_sensor.so">
+			<updateRate>1.0</updateRate>
+			<topicName>ft_sensor_topic_3</topicName>
+			<jointName>joint_prop_3</jointName>
+		</plugin>
+	</gazebo>
+
+	<gazebo reference="joint_prop_4">
+		<provideFeedback>true</provideFeedback>
+	</gazebo>
+	<gazebo>
+		<plugin name="ft_sensor_4" filename="libgazebo_ros_ft_sensor.so">
+			<updateRate>1.0</updateRate>
+			<topicName>ft_sensor_topic_4</topicName>
+			<jointName>joint_prop_4</jointName>
 		</plugin>
 	</gazebo>
 
