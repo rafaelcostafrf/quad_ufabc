@@ -30,11 +30,5 @@
 			<uri>model://sun</uri>
 		</include>
 
-
-		<include>
-			<uri>model://construction_cone</uri>
-			<pose>-3 0 0 0 0 0</pose>
-		</include>
-
 	</world>
 </sdf>
