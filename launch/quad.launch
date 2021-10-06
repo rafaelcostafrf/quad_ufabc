@@ -9,6 +9,9 @@
 		<arg name="debug" default="false" />
 	</include>
 
+	<param name="wharehouse_description" command="$(find xacro)xacro  '$(find quad_ufabc)/urdf/wharehouse.xacro'"/>
+	<node name="wharehouse" pkg="gazebo_ros" type="spawn_model" respawn="false"	output="screen" args="-param wharehouse_description -urdf -model wharehouse"/>
+
 	<!-- Load joint controller configurations from YAML file to parameter server -->
 	<rosparam file="$(find quad_ufabc)/config/quad_control.yaml" command="load"/>
 
@@ -17,8 +20,6 @@
 		output="screen" args="--namespace=/quad joint_state_controller joint_motor_controller"/>
 
 	<group ns="quad">
-
-
 		<param name="robot_description" command="$(find xacro)xacro  '$(find quad_ufabc)/urdf/quad.xacro'"/>
 
 		<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model quad" />

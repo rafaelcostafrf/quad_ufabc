@@ -22,13 +22,161 @@
 			</sky>
 		</scene>
 
-		<include>
-			<uri>model://ground_plane</uri>
-		</include>
+		<light type="spot" name="light_00">
+            <pose>35 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_01">
+            <pose>25 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_02">
+            <pose>15 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_03">
+            <pose>5 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_04">
+            <pose>-5 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_05">
+            <pose>-15 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_06">
+            <pose>-25 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
+		<light type="spot" name="light_07">
+            <pose>-35 0 6 0 0 0</pose>
+            <diffuse>.9 .9 .9 1</diffuse>
+            <specular>.1 .1 .1 1</specular>
+            <attenuation>
+				<constant>0.1</constant>
+				<linear>0.01</linear>
+				<quadratic>0.01</quadratic>
+                <range>50</range>
+            </attenuation>
+			<spot>
+				<inner_angle>0.1</inner_angle>
+				<outer_angle>10</outer_angle>
+				<falloff>0.01</falloff>
+			</spot>
+            <direction>0 0 -1</direction>
+			<cast_shadows>true</cast_shadows>
+        </light>
+
 
 		<include>
 			<uri>model://sun</uri>
 		</include>
-
 	</world>
 </sdf>

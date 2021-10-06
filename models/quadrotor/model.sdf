@@ -1,0 +1,471 @@
+<sdf version='1.7'>
+  <model name='quad_ufabc'>
+
+    <link name='chassis'>
+      <inertial>
+        <pose>0 0 0.0252 0 -0 0</pose>
+        <mass>0.72</mass>
+        <inertia>
+          <ixx>0.00405374</ixx>
+          <ixy>3.90962e-16</ixy>
+          <ixz>6.62707e-15</ixz>
+          <iyy>0.00401544</iyy>
+          <iyz>-7.48227e-20</iyz>
+          <izz>0.00585757</izz>
+        </inertia>
+      </inertial>
+      <collision name='chassis_fixed_joint_lump__collision_0_collision'>
+        <pose>0 0 0.02 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.15 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_1_collision_1'>
+        <pose>0 0 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.58 0.04 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_2_collision_2'>
+        <pose>0 0 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.04 0.58 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_motor_1_collision_3'>
+        <pose>0 -0.26 0.075 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.125</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_motor_2_collision_4'>
+        <pose>0.26 0 0.075 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.125</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_motor_3_collision_5'>
+        <pose>0 0.26 0.075 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.125</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__collision_motor_4_collision_6'>
+        <pose>-0.26 0 0.075 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.125</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='chassis_fixed_joint_lump__quadcopter_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/quad_simple.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint name='joint_prop_1' type='revolute'>
+      <pose relative_to='chassis'>0 -0.26 0.055 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>motor_1_bottom</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='motor_1_bottom'>
+      <pose relative_to='joint_prop_1'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.003761 0 -0 0</pose>
+        <mass>0.067</mass>
+        <inertia>
+          <ixx>1.66882e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.15882e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='motor_1_bottom_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.026</length>
+            <radius>0.014</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='motor_1_bottom_fixed_joint_lump__motor_1_visual_1'>
+        <pose>0 0 0.018 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/prop_cw.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='joint_prop_2' type='revolute'>
+      <pose relative_to='chassis'>0.26 0 0.055 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>motor_2_bottom</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='motor_2_bottom'>
+      <pose relative_to='joint_prop_2'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.003761 0 -0 0</pose>
+        <mass>0.067</mass>
+        <inertia>
+          <ixx>1.66882e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.15882e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='motor_2_bottom_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.026</length>
+            <radius>0.014</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='motor_2_bottom_fixed_joint_lump__motor_2_visual_1'>
+        <pose>0 0 0.018 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/prop_ccw.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint_prop_3' type='revolute'>
+      <pose relative_to='chassis'>0 0.26 0.055 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>motor_3_bottom</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='motor_3_bottom'>
+      <pose relative_to='joint_prop_3'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.003761 0 -0 0</pose>
+        <mass>0.067</mass>
+        <inertia>
+          <ixx>1.66882e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.15882e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='motor_3_bottom_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.026</length>
+            <radius>0.014</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='motor_3_bottom_fixed_joint_lump__motor_3_visual_1'>
+        <pose>0 0 0.018 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/prop_cw.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint_prop_4' type='revolute'>
+      <pose relative_to='chassis'>-0.26 0 0.055 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>motor_4_bottom</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    
+    <link name='motor_4_bottom'>
+      <pose relative_to='joint_prop_4'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.003761 0 -0 0</pose>
+        <mass>0.067</mass>
+        <inertia>
+          <ixx>1.66882e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.15882e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='motor_4_bottom_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.026</length>
+            <radius>0.014</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='motor_4_bottom_fixed_joint_lump__motor_4_visual_1'>
+        <pose>0 0 0.018 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/prop_ccw.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_1_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_1_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>motor_2_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 -1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>motor_2_bottom</link_name>
+    </plugin>
+
+    <plugin  
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_3_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_3_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>motor_4_bottom</link_name>
+    </plugin>
+
+    <plugin 
+    filename="ignition-gazebo-lift-drag-system"
+    name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.4</a0>
+      <cla>4.752798721</cla>
+      <cda>1.4</cda>
+      <cma>0</cma>
+      <alpha_stall>1.5</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.05725 0 0.018</cp>
+      <area>0.19</area>
+      <air_density>1.2041</air_density>
+      <forward>0 -1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>motor_4_bottom</link_name>
+    </plugin>
+
+    <plugin
+      filename="ignition-gazebo-joint-controller-system"
+      name="ignition::gazebo::systems::JointController">
+      <joint_name>joint_prop_1</joint_name>
+      <p_gain>0.1</p_gain>
+    </plugin>
+
+    <plugin
+      filename="ignition-gazebo-joint-controller-system"
+      name="ignition::gazebo::systems::JointController">
+      <joint_name>joint_prop_2</joint_name>
+      <p_gain>0.1</p_gain>
+    </plugin>
+
+    <plugin
+      filename="ignition-gazebo-joint-controller-system"
+      name="ignition::gazebo::systems::JointController">
+      <joint_name>joint_prop_3</joint_name>
+      <p_gain>0.1</p_gain>
+    </plugin>
+
+    <plugin
+      filename="ignition-gazebo-joint-controller-system"
+      name="ignition::gazebo::systems::JointController">
+      <joint_name>joint_prop_4</joint_name>
+      <p_gain>0.1</p_gain>
+    </plugin>
+
+
+  </model>
+</sdf>

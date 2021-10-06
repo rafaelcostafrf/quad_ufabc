@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wharehouse">
+	
+	<xacro:property name="height" value="8" />
+	<xacro:property name="thickness" value="0.12" />
+	<xacro:property name="column_spacing" value="15.3" />
+	<xacro:property name="column" value="0.35" />
+	<xacro:property name="column_height" value="6" />
+	<xacro:property name="column_first_position" value="-26.11" />
+	<xacro:property name="column_y_spacing" value="5.15" />
+
+
+	<xacro:macro name="loop" params="links_qty">
+		<collision name="collision_column_1">
+		  	<origin xyz="${column_first_position+column_spacing*links_qty} ${column_y_spacing+1.02} ${column_height/2}"/>
+			<geometry>
+				<box size="${column} ${column} ${column_height}"/>
+			</geometry>
+	  	</collision>
+		
+		<collision name="collision_column_1">
+		  	<origin xyz="${column_first_position+column_spacing*links_qty} -${column_y_spacing} ${column_height/2}"/>
+			<geometry>
+				<box size="${column} ${column} ${column_height}"/>
+			</geometry>
+	  	</collision>
+
+		<xacro:if value="${links_qty}">
+			<xacro:loop links_qty="${links_qty-1}" />
+		</xacro:if>
+	</xacro:macro>
+
+
+
+	<link name="world" />
+
+	<pose>0 0 0.00 0 0 0</pose>
+
+	<link name="main_body">
+		<inertial>
+			<origin xyz="0 0 2"/>
+			<mass value="1000"/>
+			<inertia ixx="1000" ixy="0.0" ixz="0.0" iyy="1000" iyz="0.0" izz="1000"/>
+		</inertial>
+
+		<collision name="collision_floor">
+		  	<origin xyz="0 0 -0.025"/>
+			<geometry>
+				<box size="105 40 0.05"/>
+			</geometry>
+	  	</collision>
+
+		<collision name="collision_wall_1">
+		  	<origin xyz="0 16 4"/>
+			<geometry>
+				<box size="105 0.12 10"/>
+			</geometry>
+	  	</collision>
+
+		<collision name="collision_wall_2">
+		  	<origin xyz="0 -15 4"/>
+			<geometry>
+				<box size="105 0.12 10"/>
+			</geometry>
+	  	</collision>
+
+		<collision name="collision_wall_3">
+		  	<origin xyz="50.3 0 4"/>
+			<geometry>
+				<box size="0.12 40 10"/>
+			</geometry>
+	  	</collision>
+
+		<collision name="collision_wall_4">
+		  	<origin xyz="-41.3 0 4"/>
+			<geometry>
+				<box size="0.12 40 10"/>
+			</geometry>
+	  	</collision>
+
+		<xacro:loop links_qty="4" />
+
+		<visual name="wharehouse">
+			<geometry>
+				<mesh filename="package://quad_ufabc/meshes/wharehouse.dae"/>
+			</geometry>
+			<origin xyz="0 0 -0.02" rpy="0 0 0" />
+		</visual>
+
+	</link>
+
+
+	<joint name="world_joint" type="fixed">
+		<parent link="world" />
+		<child link = "main_body" />
+		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	</joint>
+
+</robot>
